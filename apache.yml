@@ -9,3 +9,14 @@
   tasks:
     - name: install apache2
       apt: name=apache2 update_cache=yes state=latest
+
+    - name: start apache
+      service:
+        state:    started
+        enabled:  True
+        name:     httpd
+
+    - name: deploy static site
+      copy:
+        src: index.html
+        dest: /var/www/html/
