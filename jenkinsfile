@@ -1,0 +1,8 @@
+currentBuild.displayName = "apache_config_#_"+currentBuild.number
+pipeline {
+    agent any
+    
+    stages {
+        stage {}
+    }
+}
