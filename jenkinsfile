@@ -3,6 +3,10 @@ pipeline {
     agent any
     
     stages {
-        stage {}
+        stage ("Git Checkout") {
+            steps {
+                git credentialsId: '5fba3a4e-c0d8-4b35-a14d-43c9a5f7f889', url: 'https://github.com/sysadmin-exe/apache-ansible'
+            }
+        }
     }
 }
