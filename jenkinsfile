@@ -1,12 +1,17 @@
 currentBuild.displayName = "apache_config_#_"+currentBuild.number
 pipeline {
-    agent any
+  agent any
     
-    stages {
-        stage ("Git Checkout") {
-            steps {
-                git credentialsId: '5fba3a4e-c0d8-4b35-a14d-43c9a5f7f889', url: 'https://github.com/sysadmin-exe/apache-ansible'
-            }
-        }
+  stages {
+    stage ("Git Checkout") {
+      steps {
+        git credentialsId: '5fba3a4e-c0d8-4b35-a14d-43c9a5f7f889', url: 'https://github.com/sysadmin-exe/apache-ansible'
+      }
     }
+    stage ("Run Ansible") {
+      steps {
+        ansiblePlaybook credentialsId: 'labratvm_privatekey', disableHostKeyChecking: true, installation: 'ansible', inventory: 'dev.inv', playbook: 'apache.yml'
+      }
+    }
+  }
 }
