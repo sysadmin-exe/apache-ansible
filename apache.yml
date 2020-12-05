@@ -12,9 +12,9 @@
 
     - name: start apache
       service:
-        state:    started
-        enabled:  True
-        name:     httpd
+        state: started
+        enabled: True
+        name: apache2
 
     - name: deploy static site
       copy:
