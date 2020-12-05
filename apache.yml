@@ -3,7 +3,7 @@
   tasks:
     - name: run echo command
       command: /bin/echo hello world
-...
+
 - hosts: apache
   sudo: yes
   tasks:
